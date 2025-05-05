@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 def get_links(url):
-    response = requests.get("https://ru.wikipedia.org/")
+    response = requests.get("https://wikipedia.org/")
     soup = BeautifulSoup(response.text, 'html.parser')
     links = []
     for link in soup.find_all('a'):
@@ -27,8 +27,8 @@ def check_six_handshakes(start_url, end_url):
                 queue.append((link, depth + 1))
     return False
 
-start_url = "https://ru.wikipedia.org/wiki/Ангарск"
-end_url = "https://ru.wikipedia.org/wiki/Байкал"
+start_url = "https://en.wikipedia.org/wiki/Irkutsk"
+end_url = "https://en.wikipedia.org/wiki/Irkutsk_Oblast"
 
 result = check_six_handshakes(start_url, end_url)
 if result:
